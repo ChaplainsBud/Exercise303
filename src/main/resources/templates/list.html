@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Todo List</h1>
+<a href="/add">Add a Todo</a><br />
+<table>
+    <tr>
+        <th>Task Name</th>
+        <th>Due Date</th>
+        <th>Priority</th>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="todo : ${todos}">
+        <td th:text="${todos.task_name}"></td>
+        <td th:text="${todos.due_date}"></td>
+        <td th:text="${todos.todos.priority}"></td>
+        <td>
+            <a th:href="@{/update/{id}(id=${todos.id})}">Update</a>
+            <a th:href="@{/detail/{id}(id=${todos.id})}">Details</a>
+            <a th:href="@{/delete/{id}(id=${todos.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
